@@ -7,6 +7,7 @@
 body {
   background-image: url('space.png');
   background-color: #0f0c29; /* Deep space purple */
+  background-size:100%;
   color: white;
   font-family: 'Arial', sans-serif;
   text-align: center;
