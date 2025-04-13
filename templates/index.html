@@ -2,18 +2,18 @@
 <html>
 <head>
   <title>Cosmic To-Do List</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <div class="spaceship">
     <h1>🚀 Cosmic To-Do List</h1>
     <div class="mission-control">
       <input type="text" id="taskInput" placeholder="Add a new mission...">
-      <button onclick="addTask()">Launch Task</button>
+      <button id="addTaskBtn">Launch Task</button>  <!-- Changed to ID -->
     </div>
     <ul id="taskList"></ul>
     <p id="missionStatus">No tasks yet, astronaut!</p>
   </div>
-  <script src="script.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
