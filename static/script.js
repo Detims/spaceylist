@@ -16,9 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const li = document.createElement('li');
     li.innerHTML = `
       <span>🚀 ${taskText}</span>
+      <div class="btn-group">
       <button class="complete-btn">✔️ Complete</button>
       <button class="delete-btn">❌ Delete</button>
-    `;
+      </div>`
+    ;
     
     taskList.appendChild(li);
     taskInput.value = '';
