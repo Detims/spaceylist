@@ -14,7 +14,7 @@ def index():
     """
 
     return render_template('index.html')
-
+    
 
 @app.route('/<path:path>')
 def catch_all(path):

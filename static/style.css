@@ -1,0 +1,51 @@
+body {
+    background: #0f0c29; /* Deep space purple */
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+  }
+  
+  .spaceship {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #4fc3f7; /* Astronaut blue */
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.7);
+  }
+  
+  #taskInput {
+    padding: 10px;
+    width: 70%;
+    margin-right: 10px;
+    background: #1a1a2e;
+    color: white;
+    border: 1px solid #4fc3f7;
+  }
+  
+  button {
+    padding: 10px;
+    background: #4fc3f7;
+    color: black;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #ff6f00; /* Rocket orange */
+  }
+  
+  li {
+    list-style: none;
+    padding: 10px;
+    margin: 5px;
+    background: #1e1e3f;
+    border-left: 3px solid #4fc3f7;
+    text-align: left;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+    color: #888;
+    border-left: 3px solid #ff6f00;
+  }
