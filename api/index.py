@@ -1,34 +1,38 @@
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, redirect, url_for, render_template, request, jsonify
+import os
 
-# Our Flask app object
-app = Flask(__name__, template_folder='../templates',
-            static_folder='../static')
+app = Flask(__name__, 
+           template_folder='../templates',
+           static_folder='../static')
 
-
+# Your existing routes
 @app.route('/')
 @app.route('/index')
 def index():
-    """Our default routes of '/' and '/index'
-
-    Return: The content we want to display to a user
-    """
-
     return render_template('index.html')
-    
 
 @app.route('/<path:path>')
 def catch_all(path):
-    """A special route that catches all other requests
-
-    Note: Let this be your last route. Priority is defined
-    by order, so placing this above other functions will
-    cause catch_all() to override then.
-
-    Return: A redirect to our index route
-    """
-
     return redirect(url_for('index'))
 
+# ===== Vercel-Specific Additions =====
+@app.route('/api/search')
+def search():
+    """Example API endpoint"""
+    return jsonify({"message": "Search endpoint works!"})
+
+def vercel_handler(request):
+    """Required for Vercel serverless functions"""
+    with app.app_context():
+        response = app.full_dispatch_request()()
+    return {
+        "statusCode": response.status_code,
+        "headers": dict(response.headers),
+        "body": response.get_data(as_text=True)
+    }
 
 if __name__ == '__main__':
     app.run()
+else:
+    # This makes it work both locally and on Vercel
+    app = app
